@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Auto Answer Coursera",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "permissions": ["activeTab", "scripting"],
+  "web_accessible_resources": [
+    {
+      "resources": ["content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "commands": {
+    "start-auto-answer": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S"
+      },
+      "description": "Start Auto Answer"
+    },
+    "stop-auto-answer": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+X"
+      },
+      "description": "Stop Auto Answer"
+    }
+  }
+}
