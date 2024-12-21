@@ -1,37 +1,16 @@
 {
   "manifest_version": 3,
-  "name": "Auto Answer Coursera",
+  "name": "Coursera Helper Pro",
+  "description": "This extension will help you to answer quiz and submit grade.",
   "version": "1.0",
+  "permissions": ["activeTab", "scripting", "storage", "webRequest"],
+  "icons": {
+    "48": "assets/icon.png",
+    "128": "assets/icon.png"
+  },
   "action": {
     "default_popup": "popup.html",
-    "default_icon": "icon.png"
+    "default_icon": "assets/icon.png"
   },
-  "permissions": ["activeTab", "scripting"],
-  "web_accessible_resources": [
-    {
-      "resources": ["content.js"],
-      "matches": ["<all_urls>"]
-    }
-  ],
-  "background": {
-    "service_worker": "background.js"
-  },
-  "icons": {
-    "48": "icon.png",
-    "128": "icon.png"
-  },
-  "commands": {
-    "start-auto-answer": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+S"
-      },
-      "description": "Start Auto Answer"
-    },
-    "stop-auto-answer": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+X"
-      },
-      "description": "Stop Auto Answer"
-    }
-  }
+  "host_permissions": ["https://www.coursera.org/*"]
 }

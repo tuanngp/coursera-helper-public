@@ -1,23 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Answer Coursera</title>
-    <link rel="stylesheet" href="popup.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://apis.google.com/js/api.js"></script>
-</head>
-
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coursera Helper Pro</title>
+    <link rel="stylesheet" href="assets/css/popup.css" />
+  </head>
+  <body>
     <div class="container">
-        <h1>Auto Answer Coursera</h1>
-        <button id="start">Start Auto Answer</button>
-        <button id="stop">Stop Auto Answer</button>
-        <p id="status">Status: Inactive</p>
+      <h1>
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path
+            d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+          ></path>
+        </svg>
+        Coursera Helper Pro
+      </h1>
+
+      <div class="section">
+        <div class="section-title">
+          Auto Quiz
+          <div class="tooltip info-icon">
+            ℹ️
+            <span class="tooltiptext"
+              >Tự động điền câu trả lời cho quiz. Nhấn Start để bắt đầu.</span
+            >
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-start" id="startBtn">Start</button>
+          <button class="btn btn-stop" id="stopBtn" disabled>Stop</button>
+        </div>
+        <div class="progress-bar">
+          <div class="progress" id="quizProgress"></div>
+        </div>
+        <div class="statistics">
+          <span
+            >Completed: <span id="completedQuestions">0</span>/<span
+              id="totalQuestions"
+              >0</span
+            ></span
+          >
+          <span>Time: <span id="timeElapsed">0:00</span></span>
+        </div>
+        <div class="status" id="quizStatus">Status: Ready</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-title">
+          Grade Assignment
+          <div class="tooltip info-icon">
+            ℹ️
+            <span class="tooltiptext"
+              >Chấm điểm và gửi feedback cho bài tập.</span
+            >
+          </div>
+        </div>
+
+        <div class="template-section">
+          <button class="btn template-btn" id="templateBtn">
+            Use Feedback Template
+          </button>
+        </div>
+
+        <div class="feedback-section">
+          <textarea
+            placeholder="Enter your feedback here..."
+            id="feedbackInput"
+          ></textarea>
+          <button class="btn btn-submit" id="submitBtn">Submit Grade</button>
+        </div>
+        <div class="status" id="gradeStatus">Status: Ready</div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section">
+        <div class="section-title">
+          Share Link
+          <div class="tooltip info-icon">
+            ℹ️
+            <span class="tooltiptext">Lấy liên kết chia sẻ của bài nộp.</span>
+          </div>
+        </div>
+      
+        <div class="share-section">
+          <input type="text" id="shareLinkInput" placeholder="Share link will appear here..." readonly />
+          <button class="btn btn-copy" id="copyLinkBtn">Copy Link</button>
+        </div>
+      </div> 
+
+      <div class="divider"></div>
+
+      <div class="section author-section">
+        <div class="section-title">About</div>
+        <div class="author-info">
+          <div class="author-details">
+            <div class="author-text">
+              <span class="author-name">tuanngp</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a
+              href="https://www.facebook.com/tuanngp2003/"
+              target="_blank"
+              class="social-link"
+            >
+              <img
+                src="https://th.bing.com/th/id/OIP.g-PMKXEGdnEU8sBg9_X8uwHaHa?rs=1&pid=ImgDetMain"
+                alt="Facebook"
+              />
+            </a>
+            <a
+              href="https://github.com/tuanngp"
+              target="_blank"
+              class="social-link"
+            >
+              <img
+                src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png"
+                alt="GitHub"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="divider"></div>
+
+      <div class="section donate-section">
+        <div class="section-title">
+          Support Developer
+          <div class="tooltip info-icon">
+            ℹ️
+            <span class="tooltiptext"
+              >Help maintain and improve the extension!</span
+            >
+          </div>
+        </div>
+        <div class="donate-content">
+          <div class="donate-methods">
+            <div class="donate-method">
+              <img
+                src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-MoMo-Square-1024x1024.png"
+                alt="Momo"
+                class="method-icon"
+              />
+              <div class="method-details">
+                <span class="method-name">Momo</span>
+                <button class="btn-qr" data-qr="momo">Show QR</button>
+              </div>
+            </div>
+            <div class="donate-method">
+              <img
+                src="https://th.bing.com/th/id/OIP.6rGzO2j2Dy_7dotwoZCvPgHaHa?rs=1&pid=ImgDetMain"
+                alt="Bank"
+                class="method-icon"
+              />
+              <div class="method-details">
+                <span class="method-name">Vietcombank</span>
+                <button class="btn-qr" data-qr="vcb">Show QR</button>
+              </div>
+            </div>
+          </div>
+          <div class="qr-modal" id="qrModal">
+            <div class="qr-content">
+              <img id="qrImage" src="" alt="QR Code" />
+              <button class="btn-close">Close</button>
+            </div>
+          </div>
+        </div>
+      </div> -->
     </div>
-    <script src="popup.js"></script>
-</body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+    <script type="module" src="./content.js"></script>
+    <script src="scripts/qr-modal.js"></script>
+  </body>
 </html>
