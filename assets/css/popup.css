@@ -561,3 +561,24 @@ input:checked + .slider:before {
   width: 100%;
   border: none;
 }
+
+/* API Key Section Styles */
+.api-key-section {
+  margin-bottom: 15px;
+}
+
+#apiKeyInput {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+#apiKeyInput:focus {
+  border-color: #2196f3;
+  outline: none;
+}

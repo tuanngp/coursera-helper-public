@@ -10,8 +10,6 @@ const CONSTANTS = {
     "Thank you for your submission. Keep up the good work!",
   ],
   QUIZ_SETTINGS: {
-    totalQuestions: 10,
-    progressIncrement: 10,
     progressInterval: 1000,
   },
 };
